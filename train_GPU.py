@@ -46,8 +46,8 @@ def main(rank, world_size, cpu=False):
     batch_per_gpu = CFG.SR.BATCH_PER_GPU
 
     model = Face_Model(rank, CFG, world_size > 1)
-    #trainset = faces_data(data_lr=os.path.join(CFG.DATA.FOLDER, "LOW/LR"), data_hr=os.path.join(CFG.DATA.FOLDER, "HIGH/HR"),   img_range=CFG.DATA.IMG_RANGE, rgb=CFG.DATA.RGB)
-    trainset = faces_data(data_lr=os.path.join(CFG.DATA.FOLDER, "LOW/data_LR"), data_hr=os.path.join(CFG.DATA.FOLDER, "HIGH/data_HR"),   img_range=CFG.DATA.IMG_RANGE, rgb=CFG.DATA.RGB)
+    trainset = faces_data(data_lr=os.path.join(CFG.DATA.FOLDER, "LOW/LR"), data_hr=os.path.join(CFG.DATA.FOLDER, "HIGH/HR"),   img_range=CFG.DATA.IMG_RANGE, rgb=CFG.DATA.RGB)
+    #trainset = faces_data(data_lr=os.path.join(CFG.DATA.FOLDER, "LOW/data_LR"), data_hr=os.path.join(CFG.DATA.FOLDER, "HIGH/data_HR"),   img_range=CFG.DATA.IMG_RANGE, rgb=CFG.DATA.RGB)
     loader = get_train_loader(trainset, world_size, batch_per_gpu)
     testset = faces_data(data_lr=os.path.join(CFG.DATA.FOLDER, "testset"), data_hr=None, b_train=False, shuffle=False, img_range=CFG.DATA.IMG_RANGE, rgb=CFG.DATA.RGB)
 
